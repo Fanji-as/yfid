@@ -1,0 +1,58 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# See: https://github.com/actions/starter-workflows/blob/1dc689b281a29f0f4baaea4faf2783412735b44e/ci/node.js.yml
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - "main"
+      - "develop"
+      - "releases/**"
+      - "hotfix/**"
+  pull_request:
+
+jobs:
+  test:
+    name: Test ${{ matrix.node-version }}
+
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.2
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: yfid_expressjs
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      APP_PORT: 3000
+      APP_KEY: base64:3jbOKKmMkBUocKVMj7wKCxKEvsAxvJ3FFfw2uaYFYWc=
+      DATABASE_URL: mysql://root@localhost:3306/yfid_expressjs
+
+    strategy:
+      matrix:
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [20.11.0]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run migrate:reset -- --force
+      - run: npm run test -- --coverage
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true

@@ -1,6 +1,7 @@
 # YFID Express.js
 
 [![Build Status][build-status-image]][build-status-url]
+[![Coverage Status][coverage-status-image]][coverage-status-url]
 [![License][license-image]][license-url]
 
 Youngfounder Indonesia Bridging Application using Express.js.
@@ -21,7 +22,7 @@ Youngfounder Indonesia Bridging Application using Express.js.
 
 ## Requirement
 
-- Node.js ^18.17.0
+- Node.js ^20.11.0
 - MySQL ^8.2.0
 
 ## Instalation
@@ -85,6 +86,8 @@ The MIT License (MIT). Please see [License File][license-url] for more informati
 
 [build-status-image]: https://github.com/youngfounderid/yfid-expressjs/actions/workflows/nodejs-ci.yml/badge.svg
 [build-status-url]: https://github.com/youngfounderid/yfid-expressjs/actions/workflows/nodejs-ci.yml
+[coverage-status-image]: https://codecov.io/gh/youngfounderid/yfid-expressjs/branch/main/graph/badge.svg
+[coverage-status-url]: https://codecov.io/gh/youngfounderid/yfid-expressjs
 [license-image]: https://badgen.net/static/license/MIT/blue
 [license-url]: LICENSE.md
 [prisma-migrate-documentation-url]: https://www.prisma.io/docs/orm/prisma-migrate
