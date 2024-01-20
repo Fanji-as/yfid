@@ -1,0 +1,17 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    "christian-kohler.npm-intellisense",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "ginfuru.better-nunjucks",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "okitavera.vscode-nunjucks-formatter",
+    "Orta.vscode-jest",
+    "Prisma.prisma",
+    "rohit-gohri.format-code-action"
+  ]
+}

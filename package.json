@@ -1,0 +1,104 @@
+{
+  "name": "yfid-expressjs",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Youngfounder Indonesia Bridging Application using Express.js.",
+  "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "^20.11.0"
+  },
+  "volta": {
+    "node": "20.11.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www.js",
+    "lint": "npx eslint --ext .js, .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier --check \"**/*.+(js|json)\"",
+    "prettier:fix": "npx prettier --write \"**/*.+(js|json)\"",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:reset": "npx prisma migrate reset",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "db:seed": "npx prisma db seed",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "p2o": "npx p2o postman_collection.json -f openapi.yml",
+    "redoc:build": "npx @redocly/cli build-docs openapi.yml --output=public/api-doc.html",
+    "api-doc": "npm run p2o && npm run redoc:build",
+    "key:generate": "node app/console/commands/key-generate.js",
+    "requirements-check": "npx node-check-version",
+    "postinstall": "npm run requirements-check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngfounderid/yfid-expressjs.git"
+  },
+  "keywords": [
+    "Youngfounder",
+    "Indonesia",
+    "JavaScript",
+    "Backend",
+    "Node.js",
+    "Express.js"
+  ],
+  "author": {
+    "name": "Septianata Rizky Pratama",
+    "email": "ian.rizkypratama@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/youngfounderid/yfid-expressjs/issues"
+  },
+  "homepage": "https://github.com/youngfounderid/yfid-expressjs#readme",
+  "dependencies": {
+    "@ianriizky/node-check-version": "^1.0.3",
+    "@prisma/client": "^5.7.0",
+    "bcrypt": "^5.1.1",
+    "chalk": "^5.3.0",
+    "collect.js": "^4.36.1",
+    "cookie-parser": "~1.4.4",
+    "csurf": "^1.11.0",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "dotenv-expand": "^10.0.0",
+    "error-stack-parser": "^2.1.4",
+    "escape-html": "^1.0.3",
+    "express": "~4.16.1",
+    "express-joi-validation": "^5.0.1",
+    "express-jwt": "^8.4.1",
+    "hash-equals": "^0.0.5",
+    "http-errors": "~1.6.3",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.11.1",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8",
+    "morgan": "~1.9.1",
+    "nunjucks": "^3.2.4",
+    "serialize-javascript": "^6.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@redocly/cli": "^1.5.0",
+    "@types/jest": "^29.5.2",
+    "@types/nunjucks": "^3.2.6",
+    "@types/supertest": "^2.0.16",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.4.2",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "postman-to-openapi": "^3.0.1",
+    "prettier": "^3.0.3",
+    "prisma": "^5.7.0",
+    "supertest": "^6.3.3"
+  },
+  "prisma": {
+    "schema": "database/schema.prisma",
+    "seed": "node database/seeders/index.js"
+  }
+}
