@@ -1,5 +1,6 @@
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
+import _ from "lodash";
 
 /**
  * @typedef {import("../models/index.js").prisma.User} User
@@ -24,7 +25,7 @@ export class UserRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,
