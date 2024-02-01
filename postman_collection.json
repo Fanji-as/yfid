@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "a0561085-567f-4fec-a076-463c52461766",
+		"name": "yfid-expressjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3383015"
+	},
+	"item": [
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}",
+							"host": [
+								"{{base_url}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}",
+									"host": [
+										"{{base_url}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15-fWwxo68NlPRHzd7O4auWM6L7XY4\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AxlI73y8JKFsYd6OnWT4XamEwdnLe1q4x.cejD86VfUFkXo33FL%2F%2BDBbDwjWiX0CIseTOhSk4DL1o; Path=/; Expires=Thu, 01 Feb 2024 01:36:23 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 01:35:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Express\"\n}"
+						}
+					]
+				},
+				{
+					"name": "app-version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.collectionVariables.set(\"version\", pm.response.json()[\"app-version\"])",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/app-version",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"app-version"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/app-version",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app-version"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17-nHkSQ6mrMk3Hv7nuQX+wjFYT0mA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 01:35:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"app-version\": \"0.1.0\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({ key: 'Accept', value: 'application/vnd.api+json' });",
+					"pm.request.headers.add({ key: 'Content-Type', value: 'application/vnd.api+json' });"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "version",
+			"value": "0.1.0",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/v1",
+			"type": "string"
+		}
+	]
+}
