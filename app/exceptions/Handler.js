@@ -51,10 +51,12 @@ export class Handler {
       err?.statusCode || err?.status || StatusCodes.INTERNAL_SERVER_ERROR;
 
     if (res.headersSent || !["application/json"].includes(req.headers.accept)) {
+      const message = err?.render ? err?.render() : err.message;
+
       return res
         .status(status)
         .header("content-type", "text/html")
-        .send(err?.render ? err?.render() : err.message);
+        .send(message);
     }
 
     return res.status(status).formattedJson({
