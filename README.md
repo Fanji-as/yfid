@@ -23,7 +23,7 @@ Youngfounder Indonesia Bridging Application using Express.js.
 ## Requirement
 
 - Node.js ^20.11.0
-- MySQL ^8.2.0
+- PostgreSQL ^16.1
 
 ## Instalation
 

@@ -20,15 +20,16 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:8.2
+      postgres:
+        image: postgres:16.1
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: yfid_expressjs
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: yfid_expressjs
         ports:
-          - 3306:3306
+          - 5432:5432
         options: >-
-          --health-cmd "mysqladmin ping"
+          --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -39,7 +40,7 @@ jobs:
       CSRF_KEY: uGmrweNVNNwWNxLprSi5q05Ky7P1ay35
       COOKIE_KEY: VzSq06KgonYG3e9zTSFAOdmNDyywDdjE
       SESSION_KEY: QrjAYswcBf4QIivpTGQV60T1ZjR69XIB
-      DATABASE_URL: mysql://root@localhost:3306/yfid_expressjs
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/yfid_expressjs
 
     strategy:
       matrix:
