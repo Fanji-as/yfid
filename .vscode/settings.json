@@ -6,5 +6,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "eslint.probe": ["javascript"],
-  "jest.autoRun": "off"
+  "jest.runMode": {
+    "type": "on-demand"
+  }
 }
