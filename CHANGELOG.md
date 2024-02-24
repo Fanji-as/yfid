@@ -4,7 +4,7 @@ All notable changes to `YFID Express.js` will be documented in this file.
 
 ## [Unreleased](https://github.com/youngfounderid/yfid-expressjs/compare/0.1.0...develop)
 
-## [0.1.0](https://github.com/youngfounderid/yfid-expressjs/releases/tag/0.1.0) - 2024-02-16
+## [0.1.0](https://github.com/youngfounderid/yfid-expressjs/releases/tag/0.1.0) - 2024-02-24
 
 - chore: initial commit by [@ianriizky](https://github.com/ianriizky) in [#7a7a147](https://github.com/youngfounderid/yfid-expressjs/commit/7a7a1477cc3f60f10cffa13b744f2a298053d6ae).
 - feat: setup code coverage using codecov by [@ianriizky](https://github.com/ianriizky) in [#74d3ceb](https://github.com/youngfounderid/yfid-expressjs/commit/74d3ceb91b73bfae64f5b3ff6a993d18b69a2455).
@@ -15,3 +15,5 @@ All notable changes to `YFID Express.js` will be documented in this file.
 - chore: set default formatter for prisma on vscode settings by [@ianriizky](https://github.com/ianriizky) in [#c1fc77c](https://github.com/youngfounderid/yfid-expressjs/commit/c1fc77c822191146c519e06ad3aa903cd37aa0c1).
 - chore!: change database engine from mysql into postgresql by [@ianriizky](https://github.com/ianriizky) in [#3fe3d5c](https://github.com/youngfounderid/yfid-expressjs/commit/3fe3d5c55095f458a9cd1d3290f261a641f3a6a7).
 - chore!: remove deprecated jest on vscode settings by [@ianriizky](https://github.com/ianriizky) in [#be87c54](https://github.com/youngfounderid/yfid-expressjs/commit/be87c544373c1ec1cb78c53fc043bbabf2cd5e92).
+- docs: update author email on license by [@ianriizky](https://github.com/ianriizky) in [#5c4b8e4](https://github.com/youngfounderid/yfid-expressjs/commit/5c4b8e4b6a0686bc60709024dc002514ecf8aa80).
+- chore: create pull request template on github by [@ianriizky](https://github.com/ianriizky) in [#dc76874](https://github.com/youngfounderid/yfid-expressjs/commit/dc768747bffda13dcf7dccc043cefdcc6963df1b).
