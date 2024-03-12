@@ -11,7 +11,7 @@ Youngfounder Indonesia Bridging Application using Express.js.
 - [YFID Express.js](#yfid-expressjs)
   - [Table of Contents](#table-of-contents)
   - [Requirement](#requirement)
-  - [Instalation](#instalation)
+  - [Installation](#installation)
   - [Preparing The Database](#preparing-the-database)
   - [Running in Development Environment](#running-in-development-environment)
   - [Testing](#testing)
@@ -25,7 +25,7 @@ Youngfounder Indonesia Bridging Application using Express.js.
 - Node.js ^20.11.0
 - PostgreSQL ^16.1
 
-## Instalation
+## Installation
 
 You can install the project by clone it via GitHub :
 
