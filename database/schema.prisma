@@ -13,14 +13,17 @@ datasource db {
 model User {
   id String @id @default(uuid()) @db.Char(36)
 
-  username String @unique @db.VarChar(255)
-  email    String @unique @db.VarChar(255)
-  name     String @db.VarChar(255)
+  parent_name  String   @db.VarChar(255)
+  name         String   @db.VarChar(255)
+  birth_date   DateTime @db.Date
+  phone_number String   @db.VarChar(255)
+  email        String   @unique @db.VarChar(255)
+  address      String   @db.VarChar(255)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
 
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  auths Auth[]
+  auths       Auth[]
+  transaction Transaction[]
 
   @@map("users")
 }
@@ -44,4 +47,34 @@ enum AuthProvider {
   local
   google
   facebook
+}
+
+model Transaction {
+  id          String   @id @default(uuid()) @db.Char(36)
+  name        String   @db.VarChar(255)
+  user_id     String   @db.VarChar(255)
+  description String   @db.VarChar(255)
+  price       Float
+  quantity    Float
+  total       Float
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  user     User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  payments Payment[]
+
+  @@map("transactions")
+}
+
+model Payment {
+  id             String   @id @default(uuid()) @db.Char(36)
+  transaction_id String   @db.VarChar(255)
+  methde         String   @db.VarChar(255)
+  amount         Float
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  transaction Transaction @relation(fields: [transaction_id], references: [id], onDelete: Cascade)
+
+  @@map("payments")
 }

@@ -31,6 +31,7 @@ CREATE TABLE "auths" (
 -- CreateTable
 CREATE TABLE "transactions" (
     "id" CHAR(36) NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
     "user_id" VARCHAR(255) NOT NULL,
     "description" VARCHAR(255) NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
