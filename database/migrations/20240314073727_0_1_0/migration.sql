@@ -6,7 +6,7 @@ CREATE TABLE "users" (
     "id" CHAR(36) NOT NULL,
     "parent_name" VARCHAR(255) NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "birth_date" DATE NOT NULL,
+    "date_birth" DATE NOT NULL,
     "phone_number" VARCHAR(255) NOT NULL,
     "email" VARCHAR(255) NOT NULL,
     "address" VARCHAR(255) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE "transactions" (
     "user_id" VARCHAR(255) NOT NULL,
     "description" VARCHAR(255) NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
-    "quantity" DOUBLE PRECISION NOT NULL,
+    "quantity" INTEGER NOT NULL,
     "total" DOUBLE PRECISION NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -47,16 +47,14 @@ CREATE TABLE "transactions" (
 CREATE TABLE "payments" (
     "id" CHAR(36) NOT NULL,
     "transaction_id" VARCHAR(255) NOT NULL,
-    "methde" VARCHAR(255) NOT NULL,
+    "method" VARCHAR(255) NOT NULL,
+    "status" VARCHAR(255),
     "amount" DOUBLE PRECISION NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "payments_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- AddForeignKey
 ALTER TABLE "auths" ADD CONSTRAINT "auths_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
