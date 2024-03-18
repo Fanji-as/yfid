@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a0561085-567f-4fec-a076-463c52461766",
+		"_postman_id": "ef448a9c-ab71-4286-9d1c-8d8a84a2b3d9",
 		"name": "yfid-expressjs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3383015"
+		"_exporter_id": "30855968"
 	},
 	"item": [
 		{
@@ -176,6 +176,135 @@
 							"body": "{\n    \"app-version\": \"0.1.0\"\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "midtrans",
+			"item": [
+				{
+					"name": "snap-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_details\": {\r\n        \"order_id\": \"ORDER-101\",\r\n        \"gross_amount\": 10000\r\n    },\r\n    \"item_details\": [\r\n        {\r\n            \"id\": \"ITEM1\",\r\n            \"price\": 10000,\r\n            \"quantity\": 1,\r\n            \"name\": \"Midtrans Bear\",\r\n            \"brand\": \"Midtrans\",\r\n            \"category\": \"Toys\",\r\n            \"merchant_name\": \"Midtrans\",\r\n            \"url\": \"http://toko/toko1?item=abc\"\r\n        }\r\n    ],\r\n    \"customer_details\": {\r\n        \"first_name\": \"TEST\",\r\n        \"last_name\": \"MIDTRANSER\",\r\n        \"email\": \"test@midtrans.com\",\r\n        \"phone\": \"+628123456\",\r\n        \"billing_address\": {\r\n            \"first_name\": \"TEST\",\r\n            \"last_name\": \"MIDTRANSER\",\r\n            \"email\": \"test@midtrans.com\",\r\n            \"phone\": \"081 2233 44-55\",\r\n            \"address\": \"Sudirman\",\r\n            \"city\": \"Jakarta\",\r\n            \"postal_code\": \"12190\",\r\n            \"country_code\": \"IDN\"\r\n        },\r\n        \"shipping_address\": {\r\n            \"first_name\": \"TEST\",\r\n            \"last_name\": \"MIDTRANSER\",\r\n            \"email\": \"test@midtrans.com\",\r\n            \"phone\": \"0 8128-75 7-9338\",\r\n            \"address\": \"Sudirman\",\r\n            \"city\": \"Jakarta\",\r\n            \"postal_code\": \"12190\",\r\n            \"country_code\": \"IDN\"\r\n        }\r\n    },\r\n    \"enabled_payments\": [\r\n        \"credit_card\",\r\n        \"cimb_clicks\",\r\n        \"bca_klikbca\",\r\n        \"bca_klikpay\",\r\n        \"bri_epay\",\r\n        \"echannel\",\r\n        \"permata_va\",\r\n        \"bca_va\",\r\n        \"bni_va\",\r\n        \"bri_va\",\r\n        \"cimb_va\",\r\n        \"other_va\",\r\n        \"gopay\",\r\n        \"indomaret\",\r\n        \"danamon_online\",\r\n        \"akulaku\",\r\n        \"shopeepay\",\r\n        \"kredivo\",\r\n        \"uob_ezpay\"\r\n    ],\r\n    \"credit_card\": {\r\n        \"secure\": true,\r\n        \"channel\": \"migs\",\r\n        \"bank\": \"bca\",\r\n        \"installment\": {\r\n            \"required\": false,\r\n            \"terms\": {\r\n                \"bni\": [\r\n                    3,\r\n                    6,\r\n                    12\r\n                ],\r\n                \"mandiri\": [\r\n                    3,\r\n                    6,\r\n                    12\r\n                ],\r\n                \"cimb\": [\r\n                    3\r\n                ],\r\n                \"bca\": [\r\n                    3,\r\n                    6,\r\n                    12\r\n                ],\r\n                \"offline\": [\r\n                    6,\r\n                    12\r\n                ]\r\n            }\r\n        },\r\n        \"whitelist_bins\": [\r\n            \"48111111\",\r\n            \"41111111\"\r\n        ],\r\n        \"dynamic_descriptor\": {\r\n            \"merchant_name\": \"Fuji Apple Inc\",\r\n            \"city_name\": \"Jakarta\",\r\n            \"country_code\": \"ID\"\r\n        }\r\n    },\r\n    \"bca_va\": {\r\n        \"va_number\": \"12345678911\",\r\n        \"sub_company_code\": \"00000\",\r\n        \"free_text\": {\r\n            \"inquiry\": [\r\n                {\r\n                    \"en\": \"text in English\",\r\n                    \"id\": \"text in Bahasa Indonesia\"\r\n                }\r\n            ],\r\n            \"payment\": [\r\n                {\r\n                    \"en\": \"text in English\",\r\n                    \"id\": \"text in Bahasa Indonesia\"\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"bni_va\": {\r\n        \"va_number\": \"12345678\"\r\n    },\r\n    \"bri_va\": {\r\n        \"va_number\": \"1234567891234\"\r\n    },\r\n    \"cimb_va\": {\r\n        \"va_number\": \"1234567891234567\"\r\n    },\r\n    \"permata_va\": {\r\n        \"va_number\": \"1234567890\",\r\n        \"recipient_name\": \"SUDARSONO\"\r\n    },\r\n    \"shopeepay\": {\r\n        \"callback_url\": \"http://shopeepay.com\"\r\n    },\r\n    \"gopay\": {\r\n        \"enable_callback\": true,\r\n        \"callback_url\": \"http://gopay.com\"\r\n    },\r\n    \"callbacks\": {\r\n        \"finish\": \"https://demo.midtrans.com\"\r\n    },\r\n    \"uob_ezpay\": {\r\n        \"callback_url\": \"http://uobezpay.com\"\r\n    },\r\n    \"expiry\": {\r\n        \"start_time\": \"2018-12-13 18:11:08 +0700\",\r\n        \"unit\": \"minutes\",\r\n        \"duration\": 1\r\n    },\r\n    \"page_expiry\": {\r\n        \"duration\": 3,\r\n        \"unit\": \"hours\"\r\n    },\r\n    \"recurring\": {\r\n        \"required\": true,\r\n        \"start_time\": \"2024-06-09 15:07:00 +0700\",\r\n        \"interval_unit\": \"week\"\r\n    },\r\n    \"custom_field1\": \"custom field 1 content\",\r\n    \"custom_field2\": \"custom field 2 content\",\r\n    \"custom_field3\": \"custom field 3 content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/midtrans/snap-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"midtrans",
+								"snap-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK (Minimum Request)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"transaction_details\": {\r\n        \"order_id\": \"ORDER-101\",\r\n        \"gross_amount\": 10000\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/midtrans/snap-token",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"midtrans",
+										"snap-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a5-Bw3pNBgRUXt9n5NeuyIZ55ji20g\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3ARkDE5VM9AyyGZpUi2wv_G7qnLAkgLk0u.X%2B3ARlXf4KONwuHlzP4fB388rAgBwHl99tqkhHupRNM; Path=/; Expires=Tue, 12 Mar 2024 06:53:55 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 06:52:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"7059914e-7c50-44b3-93d9-9383f2798b38\",\n        \"redirect_url\": \"https://app.sandbox.midtrans.com/snap/v3/redirection/7059914e-7c50-44b3-93d9-9383f2798b38\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"name\": \"otong\",\r\n        \"description\": \"course\",\r\n        \"price\": 200000,\r\n        \"quantity\": 1,\r\n        \"total\": 200000,\r\n        \"user\": {\r\n            \"parent_name\": \"otong\",\r\n            \"name\": \"otong\",\r\n            \"date_birth\": \"2000-03-13\",\r\n            \"phone_number\": \"6281028028028\",\r\n            \"email\": \"otong@gmail.com\",\r\n            \"address\": \"jalan aja\"\r\n        },\r\n        \"payment\": {\r\n            \"amount\": 200000,\r\n            \"method\": \"credit_card\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/transactions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
