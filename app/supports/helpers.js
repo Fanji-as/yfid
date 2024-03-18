@@ -10,7 +10,7 @@ export function loadEnv(options = undefined) {
 }
 
 /**
- * @param {Function} fn
+ * @param {{(req: import("express").Request, res: import("express").Response, next: import("express").NextFunction) => any;}} fn
  */
 export function asyncHandler(fn) {
   return function (...args) {
