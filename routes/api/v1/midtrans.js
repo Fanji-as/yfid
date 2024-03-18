@@ -25,6 +25,7 @@ router.post(
 
 router.post(
   "/midtrans/notification",
+  // eslint-disable-next-line no-unused-vars
   asyncHandler(async (req, res, next) => {
     // validation using signature key
     const hash = crypto.createHash("sha512");
